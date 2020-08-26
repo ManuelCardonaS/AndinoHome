@@ -86,6 +86,7 @@ class Mdl_Productos extends CI_Model
 
         $nombre_Categoria = $data[0]->CAT_Nombre;
         $nombre_Subcategoria = $data[0]->SUB_Nombre;
+        
 
         $subir_Imagenes = $this->subir_Imagenes($id_Producto, $nombre_Categoria, $nombre_Subcategoria, $datos['imagenes']);
 
