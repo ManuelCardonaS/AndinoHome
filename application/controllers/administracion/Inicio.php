@@ -20,27 +20,26 @@ class Inicio extends CI_Controller
         $this->form_validation->set_rules('ckb_Subcategorias', 'Sucategorias', 'required');
         $this->form_validation->set_rules('Ckb_Estado', 'Estado');
 
-
         $data['categorias'] = $this->Mdl_Productos->get_Categorias();
         $data['caracteristicas'] = $this->Mdl_Productos->get_Caracteristicas();
-
         $data['categoria_Seleccionada'] = NULL;
         $data['subcategoria_Seleccionada'] = NULL;
         $data['productos'] = NULL;
-
-        $data['estado'] = $this->input->post('ckb_Estado');
-        $data['Estado_Activo'] = NULL;
-        $data['Estado_Inactivo'] = "";
-        if ($data['estado']) {
-            $data['Estado_Activo'] = "selected";
-        } else {
-            $data['Estado_Inactivo'] = "selected";
-        }
-
+        $data['estado'] = 1;
+        $data['estados_Producto'][0] = array(
+            'estado' => 'ACTIVO',
+            'valor' => 1
+        );
+        $data['estados_Producto'][1] = array(
+            'estado' => 'INACTIVO',
+            'valor' => 0
+        );
+     
         if ($this->form_validation->run()) {
             $data['categoria_Seleccionada'] = $this->input->post('ckb_Categorias');
             $data['subcategoria_Seleccionada'] = $this->input->post('ckb_Subcategorias');
             $data['SubCategorias'] = $this->Mdl_Productos->get_Subcategorias($data['categoria_Seleccionada']);
+            $data['estado'] = $this->input->post('ckb_Estado');
         } else {
             $data['categoria_Seleccionada'] = $data['categorias'][0]->CAT_Categoria;
             $data['SubCategorias'] = $this->Mdl_Productos->get_Subcategorias($data['categoria_Seleccionada']);

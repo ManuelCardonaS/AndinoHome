@@ -59,6 +59,11 @@ class Mdl_Productos extends CI_Model
         return $this->db->get()->result();
     }
 
+    public function get_Imagens($id_Producto, $estado)
+    {
+        
+    }
+
     public function guardar_Producto($datos)
     {
         $this->db->trans_begin();

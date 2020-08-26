@@ -54,8 +54,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
                             <div class="col input-field">
                                 <select name="ckb_Estado">
-                                    <option value="1" <?= $Estado_Activo ?>>ACTIVO</option>
-                                    <option value="0" <?= $Estado_Inactivo ?>>INACTIVO</option>
+                                <?php foreach ($estados_Producto as $key => $value) { ?>
+                                    <option value="<?= $value['valor'] ?>" <?= $value['valor'] == $estado ? "selected" : "" ?>><?= $value['estado'] ?></option>
+                                    <?php } ?>
                                 </select>
                                 <label for="ckb_Estado">Estado del producto</label>
                             </div>
@@ -70,7 +71,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
                     <div class="row">
 
-                        <?php if ($subcategoria_Seleccionada != -1 && $Estado_Activo == "selected") { ?>
+                        <?php if ($subcategoria_Seleccionada != -1 && $estado) { ?>
                             <div class="col input-field s12">
                                 <button class="btn-small waves-effect waves-light modal-trigger" href="#modal_Crear_Producto" name="action">Añadir producto
                                     <i class="material-icons right">add</i>
