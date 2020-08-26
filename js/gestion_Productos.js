@@ -84,7 +84,6 @@ $(document).ready(function() {
                 let divImg = $("<div class='col m4 s12'></div>");
                 let img = $("<img class='img_Crear_Producto'>");
 
-
                 reader.onload = function(e) {
                     img.attr('src', e.target.result);
                 }
@@ -99,8 +98,8 @@ $(document).ready(function() {
         }
     });
 
-    $(document).on("click", "#btn_Cancelar_Producto, #btn_Cerar_Crear_Producto", function() {
-
+    $(document).on("click", ".cancelar_Modal", function() {
+        window.location.reload();
     });
 
     $(document).on("click", "#btn_Crear_Producto", function() {
@@ -177,6 +176,37 @@ $(document).ready(function() {
 
         });
 
+    });
+
+    $(document).on("click", ".abrir_Producto", function() {
+
+        let id = $(this).attr("id");
+
+        $.ajax({
+            type: 'POST',
+            datatype: "json",
+            url: base_url + "administracion/Inicio/get_Producto_Detalle",
+            data: { id_Producto: id },
+            success: function(datos) {
+
+                console.log(datos.length);
+
+
+                for (let i = 0; i < datos.length; i++) {
+                    const element = datos[i];
+
+                    console.log(element);
+
+                }
+
+
+                //$("#modal_Detalle_Producto").modal('open');
+            },
+            error: function() {
+                mensaje('Error en la consulta', colorError, null);
+            }
+
+        });
     });
 
 });

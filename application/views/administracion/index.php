@@ -16,7 +16,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <?php
     $this->load->view('base/menu_Base_Admin', NULL, FALSE);
     $this->load->view('modal/modal_Crear_Producto', NULL, FALSE);
-
+    $this->load->view('modal/modal_Detalle_Producto', NULL, FALSE);
     ?>
 
     <main>
@@ -87,7 +87,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         <div class="card">
                                             <div class="card-image responsive-img">
                                                 <img src="<?= $foto ?> ">
-                                                <a id="<?= $value->PRO_Producto ?>" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+                                                <a id="<?= $value->PRO_Producto ?>" class="btn-floating halfway-fab waves-effect waves-light abrir_Producto red"><i class="material-icons">add</i></a>
                                             </div>
                                             <div class="card-content">
                                                 <span class="card-title truncate"><?= $value->PRO_Nombre ?></span>

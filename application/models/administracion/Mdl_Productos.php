@@ -59,9 +59,23 @@ class Mdl_Productos extends CI_Model
         return $this->db->get()->result();
     }
 
-    public function get_Imagens($id_Producto, $estado)
+    public function get_Caracteristicas_Producto($id_Producto)
     {
-        
+        $this->db->select('atributoproducto_producto.*, atributoproducto.ATR_Nombre');
+        $this->db->from('atributoproducto_producto');
+        $this->db->join('atributoproducto', 'atributoproducto.ATR_AtributoProducto = atributoproducto_producto.ATP_ATR_Atributo', 'left');
+        $this->db->where('atributoproducto_producto.ATP_PRO_Producto', $id_Producto);
+
+        return $this->db->get()->result();
+    }
+
+    public function get_Imagenes_Producto($id_Producto, $estado)
+    {        
+        $this->db->select('*');
+        $this->db->from('fotoproducto');        
+        $this->db->where('FOT_PRO_Producto', $id_Producto);        
+
+        return $this->db->get()->result();
     }
 
     public function guardar_Producto($datos)

@@ -34,7 +34,7 @@ class Inicio extends CI_Controller
             'estado' => 'INACTIVO',
             'valor' => 0
         );
-     
+
         if ($this->form_validation->run()) {
             $data['categoria_Seleccionada'] = $this->input->post('ckb_Categorias');
             $data['subcategoria_Seleccionada'] = $this->input->post('ckb_Subcategorias');
@@ -65,5 +65,24 @@ class Inicio extends CI_Controller
         $arrayDatos['imagenes'] = $_FILES['file'];
 
         echo json_encode($this->Mdl_Productos->guardar_Producto($arrayDatos));
+    }
+
+    public function get_Producto_Detalle()
+    {
+        $id_Producto =  $this->input->post('id_Producto');
+        $data['producto'] = $this->Mdl_Productos->get_Productos($id_Producto);
+        $data['caracteristicas'] = $this->Mdl_Productos->get_Caracteristicas_Producto($id_Producto);
+        $data['imagenes'] = $this->Mdl_Productos->get_Imagenes_Producto($id_Producto, 1);
+
+        echo json_encode($data);
+    }
+
+    public function get_Imagenes()
+    {
+        $id_Producto =  $this->input->post('id_Producto');
+        $estado =  $this->input->post('estado');
+        $data['imagenes'] = $this->Mdl_Productos->get_Imagenes_Producto($id_Producto, $estado);
+
+        return json_encode($data);
     }
 }
