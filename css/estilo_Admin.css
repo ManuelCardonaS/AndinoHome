@@ -1,0 +1,162 @@
+:root {
+    --colorPrincipal: #ffffff;
+    --colorFondo: #ebebeb;
+    --colorSidenav: #131313;
+    --colorBoton: #2196f3;
+    --colorBotonHover: #0a6fc0;
+}
+
+* {
+    margin: 0;
+    border: 0;
+}
+
+header,
+nav,
+main,
+footer {
+    padding-left: 250px;
+}
+
+.color-Principal {
+    background-color: var(--colorPrincipal);
+}
+
+body {
+    background: var(--colorFondo);
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.page-footer .footer-copyright {
+    color: black;
+    background-color: white;
+}
+
+.bold-text {
+    font-weight: bold;
+}
+
+.row {
+    margin-bottom: 0;
+}
+
+.modal {
+    top: 1% !important;
+    background: white;
+    max-height: 90% !important;
+}
+
+.modal .modal-footer {
+    text-align: left;
+}
+
+.card-panel {
+    padding: 20px;
+}
+
+.card .card-image img {
+    height: 200px;
+}
+
+.tabs .tab a {
+    color: black;
+    font-weight: bold;
+}
+
+.tabs .tab a:focus,
+.tabs .tab a:focus.active {
+    background-color: #ebebeb;
+    outline: none;
+}
+
+.tabs .tab a:hover,
+.tabs .tab a.active {
+    background-color: #ebebeb;
+    color: black;
+}
+
+.tabs .indicator {
+    background-color: red;
+}
+
+.img_Crear_Producto {
+    width: 100%;
+    height: 250px;
+}
+
+.sidenav {
+    background: var(--colorSidenav);
+    width: 250px;
+}
+
+.sidenav li>a>i,
+.sidenav li>a>[class^="mdi-"],
+.sidenav li>a li>a>[class*="mdi-"],
+.sidenav li>a>i.material-icons {
+    color: #ffffff;
+}
+
+.sidenav li>a {
+    color: #ffffff;
+}
+
+.sidenav .user-view .circle {
+    height: 80px;
+    width: 80px;
+}
+
+nav {
+    background-color: var(--colorPrincipal);
+}
+
+nav a {
+    color: #000000;
+}
+
+nav ul a {
+    color: #000000;
+    font-weight: bold;
+}
+
+nav ul a#Titulo_Nav {
+    font-size: 1.5rem;
+}
+
+nav .nav-wrapper {
+    padding-right: 10px;
+}
+
+.btn,
+.btn-small,
+button {
+    background-color: var(--colorBoton);
+}
+
+.btn:hover,
+.btn-small:hover,
+button:hover {
+    background-color: var(--colorBotonHover);
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.autocomplete-content li img {
+    display: none;
+}
+
+@media only screen and (max-width: 992px) {
+    header,
+    main,
+    nav,
+    footer {
+        padding-left: 0;
+    }
+}

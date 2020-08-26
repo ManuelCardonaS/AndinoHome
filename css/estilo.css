@@ -1,0 +1,79 @@
+:root {
+    --colorPrincipal: #0093AF;
+    --colorFondo: #e5e5e5;
+    --colorBoton: #008f39;
+    --colorBotonHover: #00b448;
+}
+
+* {
+    margin: 0;
+    border: 0;
+}
+
+.color-Principal {
+    background-color: var(--colorPrincipal);
+}
+
+body {
+    background: var(--colorFondo);
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.bold-text {
+    font-weight: bold;
+}
+
+.row {
+    margin-bottom: 0;
+}
+
+.card-panel {
+    padding: 20px;
+}
+
+nav {
+    background-color: var(--colorPrincipal);
+}
+
+nav .nav-wrapper {
+    padding-right: 10px;
+}
+
+.btn,
+.btn-small,
+button {
+    background-color: var(--colorBoton);
+}
+
+.btn:hover,
+.btn-small:hover,
+button:hover {
+    background-color: var(--colorBotonHover);
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.autocomplete-content li img {
+    display: none;
+}
+
+.modal {
+    top: 1% !important;
+    background: white;
+}
+
+@media only screen and (max-width: 992px) {
+    header,
+    main,
+    footer {
+        padding-left: 0;
+    }
+}
