@@ -189,18 +189,30 @@ $(document).ready(function() {
             data: { id_Producto: id },
             success: function(datos) {
 
-                console.log(datos.length);
+                let producto = JSON.parse(datos)['producto'][0];
+                let caracteristicas = JSON.parse(datos)['caracteristicas'];
+                let fotos = JSON.parse(datos)['imagenes'];
+
+                let divPrincipal = $("#div_Caracteristicas_Detalle");
+
+                $("#txt_Nombre_Producto_Detalle").val(producto['PRO_Nombre']);
+                $("#txt_Precio_Producto_Detalle").val(producto['PRO_Precio']);
+                $("#txt_Descripcion_Producto_Detalle").val(producto['PRO_Descripcion']);
+
+                $.each(caracteristicas, function(index, valueOfElement) {
+
+                    let divCol = $("<div class='input-field col m3 s12'></div>");
+                    let inputLabel = $("<input id='" + valueOfElement['ATP_ATR_Atributo'] + "' type ='text' value='" + valueOfElement['ATP_Descripcion'] + "' class='validate'>" +
+                        "<label for='" + valueOfElement['ATP_ATR_Atributo'] + "'>" + valueOfElement['ATR_Nombre'] + "</label>");
+
+                    divCol.append(inputLabel);
+                    divPrincipal.append(divCol);
+
+                });
 
 
-                for (let i = 0; i < datos.length; i++) {
-                    const element = datos[i];
-
-                    console.log(element);
-
-                }
-
-
-                //$("#modal_Detalle_Producto").modal('open');
+                M.updateTextFields();
+                $("#modal_Detalle_Producto").modal('open');
             },
             error: function() {
                 mensaje('Error en la consulta', colorError, null);

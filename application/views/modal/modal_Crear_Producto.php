@@ -10,8 +10,8 @@
             <div class="col s12">
                 <ul class="tabs tabs-fixed-width">
                     <li class="tab col s4"><a class="active" href="#datos_Producto">DATOS PRODUCTO</a></li>
-                    <li class="tab col s4"><a href="#test2">CARACTERÍSTICAS</a></li>
-                    <li class="tab col s4"><a href="#test3">FOTOS</a></li>
+                    <li class="tab col s4"><a href="#caracteristicas_Producto">CARACTERÍSTICAS</a></li>
+                    <li class="tab col s4"><a href="#fotos_Producto">FOTOS</a></li>
                 </ul>
             </div>
 
@@ -37,7 +37,7 @@
                     </div>
                 </div>
             </div>
-            <div id="test2" class="col s12">
+            <div id="caracteristicas_Producto" class="col s12">
                 <div class="section">
                     <div class="row">
                         <div class="col s12 center">
@@ -61,7 +61,7 @@
                     </div>
                 </div>
             </div>
-            <div id="test3" class="col s12">
+            <div id="fotos_Producto" class="col s12">
                 <div class="section">
                     <div class="row">
                         <div class="col s12">

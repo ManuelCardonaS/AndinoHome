@@ -9,13 +9,13 @@
         <div class="row">
             <div class="col s12">
                 <ul class="tabs tabs-fixed-width">
-                    <li class="tab col s4"><a class="active" href="#datos_Producto">DATOS PRODUCTO</a></li>
-                    <li class="tab col s4"><a href="#test2">CARACTERÍSTICAS</a></li>
-                    <li class="tab col s4"><a href="#test3">FOTOS</a></li>
+                    <li class="tab col s4"><a class="active" href="#datos_Producto_Detalle">DATOS PRODUCTO</a></li>
+                    <li class="tab col s4"><a href="#caracteristicas_Producto_Detalle">CARACTERÍSTICAS</a></li>
+                    <li class="tab col s4"><a href="#fotos_Producto_Detalle">FOTOS</a></li>
                 </ul>
             </div>
 
-            <div id="datos_Producto" class="col s12">
+            <div id="datos_Producto_Detalle" class="col s12">
                 <div class="section">
                     <div class="row">
                         <div class="input-field col m6 s12">
@@ -37,31 +37,20 @@
                     </div>
                 </div>
             </div>
-            <div id="test2" class="col s12">
+            <div id="caracteristicas_Producto_Detalle" class="col s12">
                 <div class="section">
                     <div class="row">
                         <div class="col s12 center">
                             <span class="flow-text">Indique las características corresponden al producto</span>
                         </div>
                     </div>
-
+                    <br>
                     <div id="div_Caracteristicas_Detalle" class="row">
-                        <?php if (count($caracteristicas) > 0) {
-                            foreach ($caracteristicas as $key => $value) { ?>
-                                <div class="input-field col m3 s12">
-                                    <input id="<?= $value->ATR_AtributoProducto ?>" type="text" class="validate">
-                                    <label for="<?= $value->ATR_AtributoProducto ?>"><?= $value->ATR_Nombre ?></label>
-                                </div>
-                            <?php }
-                        } else { ?>
-                            <div class="input-field col m12 s12">
-                                <span class="bold-text">No tiene características almacenadas, ingrese características presionando <a href="">AQUÍ</a></span>
-                            </div>
-                        <?php } ?>
+                        
                     </div>
                 </div>
             </div>
-            <div id="test3" class="col s12">
+            <div id="fotos_Producto_Detalle" class="col s12">
                 <div class="section">
                     <div class="row">
                         <div class="col s12">
