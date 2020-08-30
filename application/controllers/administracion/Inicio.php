@@ -85,4 +85,25 @@ class Inicio extends CI_Controller
 
         return json_encode($data);
     }
+
+    public function inhabilitar_Imagen()
+    {
+        $id_Imagen =  $this->input->post('id');
+        echo $this->Mdl_Productos->cambiar_Estado_Imagen($id_Imagen, 0);
+    }
+
+    public function actualizar_Producto()
+    {
+        $this->load->helper('path');
+
+        $arrayDatos['subcategoria'] = $this->input->post("subcategoria");
+        $arrayDatos['nombre_Producto'] = $this->input->post("nombre_Producto");
+        $arrayDatos['precio_Producto'] = $this->input->post("precio_Producto");
+        $arrayDatos['descripcion_Producto'] = $this->input->post("descripcion_Producto");
+        $arrayDatos['caracteristicas'] = json_decode($this->input->post("caracteristicas"));
+        $arrayDatos['imagenes'] = $_FILES['file'];
+
+        echo json_encode($this->Mdl_Productos->guardar_Producto($arrayDatos));
+    }
+
 }

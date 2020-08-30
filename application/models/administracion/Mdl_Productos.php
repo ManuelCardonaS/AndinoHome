@@ -73,7 +73,8 @@ class Mdl_Productos extends CI_Model
     {        
         $this->db->select('*');
         $this->db->from('fotoproducto');        
-        $this->db->where('FOT_PRO_Producto', $id_Producto);        
+        $this->db->where('FOT_PRO_Producto', $id_Producto);       
+        $this->db->where('FOT_Estado', $estado);
 
         return $this->db->get()->result();
     }
@@ -127,6 +128,14 @@ class Mdl_Productos extends CI_Model
         }
 
         return $retorno;
+    }
+
+    private function createPath($path)
+    {
+        if (is_dir($path)) return true;
+        $prev_path = substr($path, 0, strrpos($path, '/', -2) + 1);
+        $return = $this->createPath($prev_path);
+        return ($return && is_writable($prev_path)) ? mkdir($path) : false;
     }
 
     private function subir_Imagenes($id_Producto, $categoria, $subcategoria, $arrayImagenes)
@@ -187,11 +196,69 @@ class Mdl_Productos extends CI_Model
         return $mensaje;
     }
 
-    private function createPath($path)
+    public function cambiar_Estado_Imagen($id_Imagen, $estado)
     {
-        if (is_dir($path)) return true;
-        $prev_path = substr($path, 0, strrpos($path, '/', -2) + 1);
-        $return = $this->createPath($prev_path);
-        return ($return && is_writable($prev_path)) ? mkdir($path) : false;
+        $this->db->set("FOT_Estado", $estado);
+        $this->db->where("FOT_Fotoproducto", $id_Imagen);
+        $this->db->update("fotoproducto");
+
+        if ($this->db->affected_rows() > 0) {
+            return 1;
+        }else{
+            return 0;
+        }
     }
+
+    public function actualizar_Producto($datos)
+    {
+        
+        $this->db->trans_begin();
+
+        $retorno['estado'] = "";
+        $retorno['mensaje'] = "";
+
+        $producto['PRO_SUB_Subcategoria'] = $datos['subcategoria'];
+        $producto['PRO_Nombre'] = $datos['nombre_Producto'];
+        $producto['PRO_Descripcion'] = $datos['descripcion_Producto'];
+        $producto['PRO_Precio'] = $datos['precio_Producto'];
+        $this->db->insert('producto', $producto);
+        $id_Producto = $this->db->insert_id();
+
+        $caracteristicas = array();
+        foreach ($datos['caracteristicas'] as $key => $value) {
+            $caracteristicas[] = array(
+                'ATP_PRO_Producto' => $id_Producto,
+                'ATP_ATR_Atributo' => $value->caracteristica->id,
+                'ATP_Descripcion' => $value->caracteristica->valor
+            );
+        }
+
+        $data = $this->get_Subcategorias(NULL, $producto['PRO_SUB_Subcategoria']);
+
+        $nombre_Categoria = $data[0]->CAT_Nombre;
+        $nombre_Subcategoria = $data[0]->SUB_Nombre;
+
+        $subir_Imagenes = $this->subir_Imagenes($id_Producto, $nombre_Categoria, $nombre_Subcategoria, $datos['imagenes']);
+
+        if ($subir_Imagenes != "ok") {
+            $retorno['estado'] = "Error imágenes";
+            $retorno['mensaje'] = $subir_Imagenes;
+            $this->db->trans_rollback();
+        } else {
+            $this->db->insert_batch('atributoproducto_producto', $caracteristicas);
+
+            if ($this->db->trans_status() === FALSE) {
+                $this->db->trans_rollback();
+                $retorno['estado'] = "Error atributo";
+                $retorno['mensaje'] = "Ocurrió un error al almacenar las características del producto.";
+            } else {
+                $this->db->trans_commit();
+                $retorno['estado'] = "ok";
+                $retorno['mensaje'] = "Producto almacenado correctamente";
+            }
+        }
+
+        return $retorno;
+    }
+
 }

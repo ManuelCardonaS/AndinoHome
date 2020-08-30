@@ -73,7 +73,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
                         <?php if ($subcategoria_Seleccionada != -1 && $estado) { ?>
                             <div class="col input-field s12">
-                                <button class="btn-small waves-effect waves-light modal-trigger" href="#modal_Crear_Producto" name="action">Añadir producto
+                                <button class="btn-small waves-effect waves-light modal-trigger green" href="#modal_Crear_Producto" name="action">Añadir producto
                                     <i class="material-icons right">add</i>
                                 </button>
                             </div>
@@ -87,7 +87,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         <div class="card">
                                             <div class="card-image responsive-img">
                                                 <img src="<?= $foto ?> ">
-                                                <a id="<?= $value->PRO_Producto ?>" class="btn-floating halfway-fab waves-effect waves-light abrir_Producto red"><i class="material-icons">add</i></a>
+                                                <a id="<?= $value->PRO_Producto ?>" class="btn-floating halfway-fab waves-effect waves-light abrir_Producto blue"><i class="material-icons">add</i></a>
                                             </div>
                                             <div class="card-content">
                                                 <span class="card-title truncate"><?= $value->PRO_Nombre ?></span>
@@ -114,7 +114,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 </html>
 
 <script type="application/javascript">
-    var base_url = "<?= base_url(); ?>index.php/";
+    var base_url = "<?= base_url(); ?>";
     var categoria_Seleccionada = <?= $categoria_Seleccionada ?>;
     var subcategoria_Seleccionada = <?= $subcategoria_Seleccionada ?>
 </script>

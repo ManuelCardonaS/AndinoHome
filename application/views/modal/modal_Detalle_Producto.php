@@ -46,7 +46,18 @@
                     </div>
                     <br>
                     <div id="div_Caracteristicas_Detalle" class="row">
-                        
+                        <?php if (count($caracteristicas) > 0) {
+                            foreach ($caracteristicas as $key => $value) { ?>
+                                <div class="input-field col m3 s12">
+                                    <input id_Atributo="<?= $value->ATR_AtributoProducto ?>" type="text" class="validate">
+                                    <label for="<?= $value->ATR_AtributoProducto ?>"><?= $value->ATR_Nombre ?></label>
+                                </div>
+                            <?php }
+                        } else { ?>
+                            <div class="input-field col m12 s12">
+                                <span class="bold-text">No tiene características almacenadas, ingrese características presionando <a href="">AQUÍ</a></span>
+                            </div>
+                        <?php } ?>
                     </div>
                 </div>
             </div>
@@ -58,7 +69,7 @@
                                 <div class="file-field input-field">
                                     <div class="btn">
                                         <span>Abrir</span>
-                                        <input id="fil_Imagenes_Producto" name="fil_Imagenes_Producto" type="file" multiple>
+                                        <input id="fil_Imagenes_Producto_Detalle" name="fil_Imagenes_Producto_Detalle" type="file" multiple>
                                     </div>
                                     <div class="file-path-wrapper">
                                         <input class="file-path validate" type="text" placeholder="Seleccione una o más imágenes">
@@ -68,7 +79,7 @@
                         </div>
                     </div>
 
-                    <div id="div_Imagenes" class="row">
+                    <div id="div_Imagenes_Detalle" class="row">
                     </div>
                 </div>
             </div>
@@ -77,7 +88,7 @@
     </div>
     <div class="modal-footer">
         <a id="btn_Actualizar_Producto" href="#!" class="waves-effect waves-green btn btn-small green">Actualizar</a>
-        <a href="#!" class="waves-effect waves-green btn btn-small red">Cancelar</a>
+        <a href="#!" class="waves-effect cancelar_Modal waves-green btn btn-small red">Cancelar</a>
         <a href="#!" class="modal-close cancelar_Modal waves-effect waves-green btn btn-small right">Cerrar</a>
     </div>
 </div>
