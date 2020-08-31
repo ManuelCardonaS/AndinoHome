@@ -180,7 +180,9 @@ $(document).ready(function() {
 
     $(document).on("click", ".abrir_Producto", function() {
 
-        let id = $(this).attr("id");
+        let id = $(this).closest(".col").attr("id");
+
+        $("#id_Producto_Detalle").val(id);
         $("#txt_Nombre_Producto_Detalle").val("");
         $("#txt_Precio_Producto_Detalle").val("");
         $("#txt_Descripcion_Producto_Detalle").val("");
@@ -209,6 +211,7 @@ $(document).ready(function() {
                 $.each(caracteristicas, function(index, Item_Caracteristica) {
                     $.each($("#div_Caracteristicas_Detalle :input"), function(indexInArray, input) {
                         if ($(input).attr("id_Atributo") == Item_Caracteristica['ATP_ATR_Atributo']) {
+                            $(input).attr("id_Atributo_Producto", Item_Caracteristica['ATP_ID']);
                             $(input).val(Item_Caracteristica['ATP_Descripcion']);
                         }
                     });
@@ -234,13 +237,64 @@ $(document).ready(function() {
         });
     });
 
+    $(document).on("change", ".estado_Producto_Detalle", function() {
+
+        let boton = $(this);
+        let id_Producto = boton.closest(".col").attr("id");
+        let estado, mensaje_Estado, mensaje_Cambio;
+
+        if (boton.is(":checked")) {
+            estado = 1;
+            mensaje_Estado = "¿ Desea habilitar el producto ?";
+            mensaje_Cambio = "Producto habilitado correctamente";
+        } else {
+            mensaje_Estado = "¿ Desea inhabilitar el producto ?";
+            mensaje_Cambio = "Producto inhabilitado correctamente";
+            estado = 0;
+        }
+
+        var opcion = confirm(mensaje_Estado);
+        if (opcion == true) {
+
+            $.ajax({
+                type: 'POST',
+                url: base_url + "index.php/administracion/Inicio/cambiar_Estado_Producto",
+                dataType: 'json',
+                data: { id_Producto: id_Producto, estado: estado },
+                success: function(datos, status) {
+
+                    if (datos) {
+                        mensaje(mensaje_Cambio, colorCorrecto, null);
+                        boton.closest(".col").remove();
+                    } else {
+                        mensaje("El estado del producto no ha cambiado", colorError, null);
+                    }
+
+                },
+                error: function(datos, status) {
+                    mensaje('Ha ocurrido un problema.', colorError, null);
+                }
+
+            });
+
+        } else {
+            if (boton.is(":checked")) {
+                boton.prop("checked", false);
+                estado = 0;
+            } else {
+                estado = 1;
+                boton.prop("checked", true);
+            }
+        }
+
+    });
+
     $(document).on("click", ".eliminar_Imagen", function(param) {
         event.preventDefault();
 
         let boton = $(this);
         let id_Imagen = boton.attr("id_Imagen_Detalle");
 
-        console.log("IDDDDDDD: " + id_Imagen);
         var opcion = confirm("¿ Desea inhabilitar la imagen ?");
         if (opcion == true) {
             $.ajax({
@@ -304,6 +358,7 @@ $(document).ready(function() {
 
     $(document).on("click", "#btn_Actualizar_Producto", function() {
 
+        let id_Producto = $("#id_Producto_Detalle").val();
         let nombre_Producto = $("#txt_Nombre_Producto_Detalle").val().trim();
         let precio_Producto = $("#txt_Precio_Producto_Detalle").val();
         let descripcion_Producto = $("#txt_Precio_Producto_Detalle").val().trim();
@@ -317,14 +372,17 @@ $(document).ready(function() {
 
         $("#div_Caracteristicas_Detalle").find('input:text').each(function() {
 
+            let id_Atributo_Producto = $(this).attr("id_Atributo_Producto");
             let id = $(this).attr("id_Atributo");
             let valor = $(this).val().trim();
             if (valor != "") {
                 arrayCaracteristicas.push({
-                    caracteristica: { id, valor }
+                    caracteristica: { id_Atributo_Producto, id, valor }
                 });
             }
         });
+
+        console.log(arrayCaracteristicas);
 
         var form_data = new FormData();
         let cantidad_Imagenes = 0;
@@ -340,11 +398,7 @@ $(document).ready(function() {
             return;
         }
 
-        if (cantidad_Imagenes == 0) {
-            mensaje("Debe seleccionar al menos una fotografía del producto.", colorError, null);
-            return;
-        }
-
+        form_data.append('id_Producto', id_Producto);
         form_data.append('subcategoria', subcategoria);
         form_data.append('nombre_Producto', nombre_Producto);
         form_data.append('precio_Producto', precio_Producto);
@@ -353,7 +407,7 @@ $(document).ready(function() {
 
         $.ajax({
             type: 'POST',
-            url: base_url + "index.php/administracion/Inicio/guardar_Producto",
+            url: base_url + "index.php/administracion/Inicio/actualizar_Producto",
             processData: false,
             contentType: false,
             dataType: 'json',

@@ -54,8 +54,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
                             <div class="col input-field">
                                 <select name="ckb_Estado">
-                                <?php foreach ($estados_Producto as $key => $value) { ?>
-                                    <option value="<?= $value['valor'] ?>" <?= $value['valor'] == $estado ? "selected" : "" ?>><?= $value['estado'] ?></option>
+                                    <?php foreach ($estados_Producto as $key => $value) { ?>
+                                        <option value="<?= $value['valor'] ?>" <?= $value['valor'] == $estado ? "selected" : "" ?>><?= $value['estado'] ?></option>
                                     <?php } ?>
                                 </select>
                                 <label for="ckb_Estado">Estado del producto</label>
@@ -83,15 +83,24 @@ defined('BASEPATH') or exit('No direct script access allowed');
                             <?php if ($productos != NULL && count($productos) > 0) {
                                 foreach ($productos as $key => $value) {
                                     $foto = $value->FOT_Ruta == NULL ? base_url() . "recursos/imagenes/nofoto.png" : base_url() . "recursos/imagenes/productos/" . $value->FOT_Ruta ?>
-                                    <div class="col s12 m4 l3">
+                                    <div id="<?= $value->PRO_Producto ?>" class="col s12 m4 l3">
                                         <div class="card">
                                             <div class="card-image responsive-img">
                                                 <img src="<?= $foto ?> ">
-                                                <a id="<?= $value->PRO_Producto ?>" class="btn-floating halfway-fab waves-effect waves-light abrir_Producto blue"><i class="material-icons">add</i></a>
+                                                <a class="btn-floating halfway-fab waves-effect waves-light abrir_Producto blue"><i class="material-icons">add</i></a>
                                             </div>
                                             <div class="card-content">
                                                 <span class="card-title truncate"><?= $value->PRO_Nombre ?></span>
                                                 <p class="truncate"><?= $value->PRO_Descripcion ?></p>
+
+                                                <div class="switch center">
+                                                    <label>
+                                                        Inactivo
+                                                        <input type="checkbox" class="estado_Producto_Detalle" <?= $value->PRO_Estado ? "checked" : "" ?>>
+                                                        <span class="lever"></span>
+                                                        Activo
+                                                    </label>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

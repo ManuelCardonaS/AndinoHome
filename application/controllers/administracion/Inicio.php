@@ -88,22 +88,30 @@ class Inicio extends CI_Controller
 
     public function inhabilitar_Imagen()
     {
-        $id_Imagen =  $this->input->post('id');
+        $id_Imagen = $this->input->post('id');
         echo $this->Mdl_Productos->cambiar_Estado_Imagen($id_Imagen, 0);
+    }
+
+    public function cambiar_Estado_Producto()
+    {
+        $id_Producto = $this->input->post('id_Producto');
+        $estado = $this->input->post('estado');
+        echo $this->Mdl_Productos->cambiar_Estado_Producto($id_Producto, $estado);
     }
 
     public function actualizar_Producto()
     {
         $this->load->helper('path');
 
+        $arrayDatos['id_Producto'] = $this->input->post("id_Producto");
         $arrayDatos['subcategoria'] = $this->input->post("subcategoria");
         $arrayDatos['nombre_Producto'] = $this->input->post("nombre_Producto");
         $arrayDatos['precio_Producto'] = $this->input->post("precio_Producto");
         $arrayDatos['descripcion_Producto'] = $this->input->post("descripcion_Producto");
         $arrayDatos['caracteristicas'] = json_decode($this->input->post("caracteristicas"));
-        $arrayDatos['imagenes'] = $_FILES['file'];
+        $arrayDatos['imagenes'] = isset($_FILES['file']) ? $_FILES['file'] : NULL;
 
-        echo json_encode($this->Mdl_Productos->guardar_Producto($arrayDatos));
+        echo json_encode($this->Mdl_Productos->actualizar_Producto($arrayDatos));
     }
 
 }

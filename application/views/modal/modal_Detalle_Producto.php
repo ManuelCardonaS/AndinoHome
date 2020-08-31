@@ -2,9 +2,11 @@
     <div class="modal-content">
         <h4>Detalle del producto</h4>
         <p>En este espacio podrá visualizar la información detallada del producto.</p>
-
+        
         <div class="section"></div>
         <?php echo form_open_multipart('administracion/Inicio/actualizar_Producto'); ?>
+
+        <input type="hidden" id="id_Producto_Detalle">
 
         <div class="row">
             <div class="col s12">
@@ -49,7 +51,7 @@
                         <?php if (count($caracteristicas) > 0) {
                             foreach ($caracteristicas as $key => $value) { ?>
                                 <div class="input-field col m3 s12">
-                                    <input id_Atributo="<?= $value->ATR_AtributoProducto ?>" type="text" class="validate">
+                                    <input id_Atributo="<?= $value->ATR_AtributoProducto ?>" name="<?= $value->ATR_AtributoProducto ?>" type="text" class="validate">
                                     <label for="<?= $value->ATR_AtributoProducto ?>"><?= $value->ATR_Nombre ?></label>
                                 </div>
                             <?php }
