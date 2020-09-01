@@ -237,8 +237,8 @@ class Mdl_Productos extends CI_Model
         $producto['PRO_Descripcion'] = $datos['descripcion_Producto'];
         $producto['PRO_Precio'] = $datos['precio_Producto'];
 
-        $this->db->update('producto', $producto);
         $this->db->where('PRO_Producto', $datos['id_Producto']);
+        $this->db->update('producto', $producto);
 
         $data = $this->get_Subcategorias(NULL, $producto['PRO_SUB_Subcategoria']);
 
@@ -258,10 +258,9 @@ class Mdl_Productos extends CI_Model
             $this->db->trans_rollback();
         } else {
 
-            $caracteristicas = array();
             foreach ($datos['caracteristicas'] as $key => $value) {
 
-                $caracteristicas[] = array(
+                $caracteristicas = array(
                     'ATP_PRO_Producto' => $id_Producto,
                     'ATP_ATR_Atributo' => $value->caracteristica->id,
                     'ATP_Descripcion' => $value->caracteristica->valor
@@ -275,8 +274,6 @@ class Mdl_Productos extends CI_Model
                 } else {                    
                     $this->db->insert('atributoproducto_producto', $caracteristicas);                    
                 }
-                
-                print_r($this->db->last_query());
                 
             }
 

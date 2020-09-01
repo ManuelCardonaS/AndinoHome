@@ -327,7 +327,7 @@ $(document).ready(function() {
 
     });
 
-    $("#fil_Imagenes_Producto").change(function() {
+    $("#fil_Imagenes_Producto_Detalle").change(function() {
 
         $("#div_Imagenes").empty();
         for (let i = 0; i < this.files.length; i++) {
@@ -348,7 +348,7 @@ $(document).ready(function() {
                 reader.readAsDataURL(file);
 
                 divImg.append(img);
-                $("#div_Imagenes").append(divImg);
+                $("#div_Imagenes_Detalle").append(divImg);
 
             } else {
                 console.log('File Is not an image!');
@@ -361,7 +361,7 @@ $(document).ready(function() {
         let id_Producto = $("#id_Producto_Detalle").val();
         let nombre_Producto = $("#txt_Nombre_Producto_Detalle").val().trim();
         let precio_Producto = $("#txt_Precio_Producto_Detalle").val();
-        let descripcion_Producto = $("#txt_Precio_Producto_Detalle").val().trim();
+        let descripcion_Producto = $("#txt_Descripcion_Producto_Detalle").val().trim();
 
         if (nombre_Producto == '' || precio_Producto == '' || descripcion_Producto == '') {
             mensaje("Debe ingresar todos los datos del producto.", colorError, null);

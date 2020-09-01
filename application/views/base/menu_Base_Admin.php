@@ -4,8 +4,8 @@
     <li>
         <div class="user-view">
             <a href="#user"><img class="circle" src="<?= base_url() ?>recursos/imagenes/usuarios/user.png"></a>
-            <a><span class="white-text name">Manuel Felipe Cardona Suárez</span></a>
-            <a><span class="white-text bold-text pointer waves-effect">Cerrar Sesión</span></a>
+            <a><span class="white-text name"><?= $this->session->userdata('USU_Nombre')." ". $this->session->userdata('USU_Apellido') ?></span></a>
+            <a href="<?= base_url() ?>index.php/administracion/Login/cerrarSesion"><span class="white-text bold-text pointer waves-effect">Cerrar Sesión</span></a>
         </div>
     </li>
     <li>
