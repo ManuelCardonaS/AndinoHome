@@ -1,5 +1,5 @@
 :root {
-    --colorPrincipal: #0093AF;
+    --colorPrincipal: #eb1922;
     --colorFondo: #e5e5e5;
     --colorBoton: #008f39;
     --colorBotonHover: #00b448;
@@ -15,7 +15,6 @@
 }
 
 body {
-    background: var(--colorFondo);
     display: flex;
     min-height: 100vh;
     flex-direction: column;
@@ -34,11 +33,32 @@ body {
 }
 
 nav {
-    background-color: var(--colorPrincipal);
+    background-color: #ffffff;
+    border-bottom: var(--colorPrincipal) solid 3px;
+}
+
+nav a {
+    color: grey;
+}
+
+nav ul a {
+    color: grey;
+}
+
+nav ul a:hover {
+    background-color: rgba(0, 0, 0, 0) !important;
 }
 
 nav .nav-wrapper {
     padding-right: 10px;
+}
+
+nav .nav-wrapper img {
+    height: inherit;
+}
+
+.slider .indicators .indicator-item.active {
+    background-color: var(--colorPrincipal);
 }
 
 .btn,

@@ -6,8 +6,8 @@ $(document).ready(function() {
     $('.timepicker').timepicker();
     $('select').formSelect();
     $('.modal').modal();
-
     $('.parallax').parallax();
+    $('.slider').slider();
     $('.tabs').tabs();
 
     $('.datepicker').datepicker({
