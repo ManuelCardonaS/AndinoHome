@@ -8,11 +8,13 @@
     <?php $this->load->view('base/head_Base', NULL, FALSE); ?>
 </head>
 
-<body>
+<body class="grey lighten-3">
 
+    <?php $this->load->view('base/menu_Base', NULL, FALSE); ?>
+    
     <main>
-        <?php $this->load->view('base/menu_Base', NULL, FALSE); ?>
-        <div class="slider">
+
+        <div id="slider-index" class="slider">
             <ul class="slides">
                 <li>
                     <img src="<?= base_url() ?>recursos/imagenes/slideIndex/slide1.jpg">
@@ -44,10 +46,48 @@
                 </li>
             </ul>
         </div>
-        <div class="section white">
-            <div class="row container">
-                <h2 class="header">Título de algo</h2>
-                <p class="grey-text text-darken-3 lighten-3">Un texto antes de un efecto parallax.</p>
+        <div class="section">
+            <div class="row card_Index">
+                <div class="col s12 m4">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="<?= base_url() ?>recursos/imagenes/index/sala.jpg">
+                            <span class="card-title">SALA</span>
+                        </div>
+                        <div class="card-content">
+                            <p>Información general y relevante sobre las salas que sea llamativa
+                                para los visitantes de la página.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col s12 m4">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="<?= base_url() ?>recursos/imagenes/index/comedor.jpg">
+                            <span class="card-title">COMEDOR</span>
+                        </div>
+                        <div class="card-content">
+                            <p>Información general y relevante sobre los comedores que sea llamativa
+                                para los visitantes de la página.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col s12 m4">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="<?= base_url() ?>recursos/imagenes/index/cama.jpg">
+                            <span class="card-title">CAMA</span>
+                        </div>
+                        <div class="card-content">
+                            <p>Información general y relevante sobre las camas que sea llamativa
+                                para los visitantes de la página.</p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
         <div class="parallax-container">
@@ -69,5 +109,4 @@
 
 <script type="application/javascript">
     var base_url = "<?= base_url(); ?>index.php/";
-    var json_Autocomplete = <?= $json_Autocomplete ?>;
 </script>

@@ -7,8 +7,11 @@ $(document).ready(function() {
     $('select').formSelect();
     $('.modal').modal();
     $('.parallax').parallax();
-    $('.slider').slider();
+    $('.slider').slider({
+        interval: 3000
+    });
     $('.tabs').tabs();
+    $('.scrollspy').scrollSpy();
 
     $('.datepicker').datepicker({
         container: 'body',
