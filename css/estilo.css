@@ -98,20 +98,28 @@ main {
     background: white;
 }
 
-.card_Index .card .card-image img {
-    display: block;
-    border-radius: 2px 2px 0 0;
-    position: relative;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    width: 100%;
-    height: 250px;
+#div_Productos .card .card-image img {
+    height: 200px;
+}
+
+.card .card-image img {
+    height: 230px;
+}
+
+.collection a.collection-item {
+    color: #000;
+}
+
+.collection .collection-item.active {
+    background-color: var(--colorPrincipal);
+    color: #eafaf9;
 }
 
 @media only screen and (max-width: 992px) {
     main {
         margin-top: 0px;
+    }
+    .card .card-image img {
+        height: auto !important;
     }
 }
