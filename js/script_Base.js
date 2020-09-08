@@ -11,7 +11,11 @@ $(document).ready(function() {
         interval: 3000
     });
     $('.tabs').tabs();
-    $('.scrollspy').scrollSpy();
+    $('.carousel.carousel-slider').carousel({
+        fullWidth: true,
+        indicators: true
+    });
+    $('.materialboxed').materialbox();
 
     $('.datepicker').datepicker({
         container: 'body',

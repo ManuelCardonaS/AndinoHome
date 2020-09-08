@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class productos extends CI_Controller
+class categoria extends CI_Controller
 {
 
 
@@ -38,9 +38,11 @@ class productos extends CI_Controller
             $data['id_subcategoria'] = $data['subcategorias'][0]->SUB_Subcategoria;
         }
 
-        $data['productos'] = $this->Mdl_Productos->get_Productos(NULL, $data['id_subcategoria']);
-        
-        $this->load->view('productos', $data, FALSE);
+        if (count($data['subcategorias']) > 0) {
+            $data['productos'] = $this->Mdl_Productos->get_Productos(NULL, $data['id_subcategoria']);
+        }
+
+        $this->load->view('categoria', $data, FALSE);
     }
 }
 

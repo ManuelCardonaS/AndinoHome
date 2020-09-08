@@ -12,6 +12,8 @@
     <link href="<?= base_url() ?>css/login.css" rel="stylesheet">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Login</title>
 </head>
 
 <body>
@@ -43,9 +45,7 @@
         </div>
 
         <div class="center">
-            <button id="submit" class="btn waves-effect waves-light" name="action">Iniciar sesión
-                <i class="material-icons right">send</i>
-            </button>
+            <button id="submit" class="btn waves-effect waves-light" name="action">Iniciar sesión</button>
         </div>
 
         <div class="" style="font-size:14px;"><br>

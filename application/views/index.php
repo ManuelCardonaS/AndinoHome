@@ -8,7 +8,7 @@
     <?php $this->load->view('base/head_Base', NULL, FALSE); ?>
 </head>
 
-<body class="grey lighten-3">
+<body>
 
     <?php $this->load->view('base/menu_Base', NULL, FALSE); ?>
     

@@ -8,7 +8,7 @@ $(document).ready(function() {
 
     if (bienvenido != "") {
         if (bienvenido == "ok") {
-            mensaje("Bienvenido al sistema", colorCorrecto, true);
+            mensaje("Bienvenido", colorCorrecto, true);
         } else {
             mensaje(bienvenido, colorError, null);
         }

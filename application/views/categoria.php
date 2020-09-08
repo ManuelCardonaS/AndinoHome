@@ -8,7 +8,7 @@
     <?php $this->load->view('base/head_Base', NULL, FALSE); ?>
 </head>
 
-<body class="grey lighten-3">
+<body>
 
     <?php $this->load->view('base/menu_Base', NULL, FALSE); ?>
 
@@ -20,7 +20,7 @@
                     <div class="collection">
                         <?php if (isset($subcategorias)) {
                             foreach ($subcategorias as $key => $value) { ?>
-                                <a href="<?= base_url() . "index.php/productos/index/" . $titulo . "/" . $value->SUB_Subcategoria ?>" class="collection-item <?= $value->SUB_Subcategoria == $id_subcategoria ? "active" : "" ?>"><?= $value->SUB_Nombre ?></a>
+                                <a href="<?= base_url() . "index.php/categoria/index/" . $titulo . "/" . $value->SUB_Subcategoria ?>" class="collection-item center <?= $value->SUB_Subcategoria == $id_subcategoria ? "active" : "" ?>"><?= $value->SUB_Nombre ?></a>
                         <?php }
                         } ?>
                     </div>
@@ -29,13 +29,13 @@
                     <?php if (isset($productos) && count($productos) > 0) {
                         foreach ($productos as $key => $value) { ?>
                             <div class="col s12 m6 l3">
-                                <a href="">
+                                <a href="<?= base_url() . "index.php/producto/index/" . $value->PRO_Producto ?>">
                                     <div class="card pointer">
                                         <div class="card-image">
                                             <img src="<?= base_url() ?>recursos/imagenes/productos/<?= $value->FOT_Ruta ?>">
                                         </div>
                                         <div class="card-content">
-                                            <span class="card-title center"><?= $value->PRO_Nombre ?></span>
+                                            <span class="card-title center truncate"><?= $value->PRO_Nombre ?></span>
                                         </div>
                                     </div>
                                 </a>

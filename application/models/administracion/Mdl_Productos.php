@@ -251,7 +251,6 @@ class Mdl_Productos extends CI_Model
             $subir_Imagenes = "ok";
         }
 
-        $correcto = FALSE;
         if ($subir_Imagenes != "ok") {
             $retorno['estado'] = "Error imágenes";
             $retorno['mensaje'] = $subir_Imagenes;
@@ -266,15 +265,15 @@ class Mdl_Productos extends CI_Model
                     'ATP_Descripcion' => $value->caracteristica->valor
                 );
 
-                if (isset($value->id_Atributo_Producto)) {
-                    
-                    $this->db->update('atributoproducto_producto', $caracteristicas);
-                    $this->db->where('ATP_ID', $value->id_Atributo_Producto);                    
-                    
-                } else {                    
-                    $this->db->insert('atributoproducto_producto', $caracteristicas);                    
+                if ($value->caracteristica->id_Atributo_Producto != "-1") {
+
+                    $this->db->set($caracteristicas);
+                    $this->db->where('ATP_ID', $value->caracteristica->id_Atributo_Producto);
+                    $this->db->update('atributoproducto_producto');
+                } else {
+                    $this->db->insert('atributoproducto_producto', $caracteristicas);
                 }
-                
+
             }
 
             if ($this->db->trans_status() === FALSE) {

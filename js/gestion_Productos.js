@@ -372,7 +372,7 @@ $(document).ready(function() {
 
         $("#div_Caracteristicas_Detalle").find('input:text').each(function() {
 
-            let id_Atributo_Producto = $(this).attr("id_Atributo_Producto");
+            let id_Atributo_Producto = $(this).attr("id_Atributo_Producto") == null ? "-1" : $(this).attr("id_Atributo_Producto");
             let id = $(this).attr("id_Atributo");
             let valor = $(this).val().trim();
             if (valor != "") {
@@ -380,6 +380,7 @@ $(document).ready(function() {
                     caracteristica: { id_Atributo_Producto, id, valor }
                 });
             }
+
         });
 
         console.log(arrayCaracteristicas);

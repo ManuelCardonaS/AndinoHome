@@ -1,6 +1,6 @@
 :root {
     --colorPrincipal: #eb1922;
-    --colorFondo: #e5e5e5;
+    --colorFondo: #fdfdfd;
     --colorBoton: #008f39;
     --colorBotonHover: #00b448;
 }
@@ -18,6 +18,8 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+    background-color: var(--colorFondo);
+    font-family: PT Serif, sans-serif;
 }
 
 .bold-text {
@@ -106,6 +108,14 @@ main {
     height: 230px;
 }
 
+.card .card-content .card-title {
+    color: #000;
+}
+
+.card .card-title {
+    font-size: 20px;
+}
+
 .collection a.collection-item {
     color: #000;
 }
@@ -115,11 +125,26 @@ main {
     color: #eafaf9;
 }
 
+.collection a.collection-item:not(.active):hover {
+    background-color: white !important;
+}
+
+.carousel .indicators .indicator-item {
+    background-color: var(--colorPrincipal);
+}
+
+.carousel .indicators .indicator-item.active {
+    background-color: #000000;
+}
+
 @media only screen and (max-width: 992px) {
     main {
         margin-top: 0px;
     }
     .card .card-image img {
         height: auto !important;
+    }
+    .container {
+        width: 99%;
     }
 }
