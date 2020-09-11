@@ -16,7 +16,7 @@
         <div class="section">
             <div class="row">
                 <div id="div_Subcategorias" class="col s12 m4 l3">
-                    <h4 class="center"><?= $titulo ?></h4>
+
                     <div class="collection">
                         <?php if (isset($subcategorias)) {
                             foreach ($subcategorias as $key => $value) { ?>
@@ -26,6 +26,7 @@
                     </div>
                 </div>
                 <div id="div_Productos" class="col s12 m8 l9">
+                    <h4 class="center"><?= $titulo ?></h4>
                     <?php if (isset($productos) && count($productos) > 0) {
                         foreach ($productos as $key => $value) { ?>
                             <div class="col s12 m6 l3">

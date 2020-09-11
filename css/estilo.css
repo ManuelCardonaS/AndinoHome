@@ -3,6 +3,7 @@
     --colorFondo: #fdfdfd;
     --colorBoton: #008f39;
     --colorBotonHover: #00b448;
+    --colorLetra: #333;
 }
 
 * {
@@ -19,7 +20,8 @@ body {
     min-height: 100vh;
     flex-direction: column;
     background-color: var(--colorFondo);
-    font-family: PT Serif, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--colorLetra);
 }
 
 .bold-text {
@@ -44,11 +46,30 @@ nav a {
 }
 
 nav ul a {
-    color: grey;
+    color: var(--colorLetra);
+}
+
+nav ul a:hover {
+    color: red;
+}
+
+nav ul a.active {
+    color: red;
+    font-size: 1.1rem;
 }
 
 nav ul a:hover {
     background-color: rgba(0, 0, 0, 0) !important;
+}
+
+nav ul li img {
+    filter: grayscale(1);
+    transition-property: filter;
+    transition-duration: 0.5s;
+}
+
+nav ul li img:hover {
+    filter: grayscale(0);
 }
 
 nav .nav-wrapper {
@@ -109,7 +130,7 @@ main {
 }
 
 .card .card-content .card-title {
-    color: #000;
+    color: var(--colorLetra);
 }
 
 .card .card-title {
@@ -117,7 +138,7 @@ main {
 }
 
 .collection a.collection-item {
-    color: #000;
+    color: var(--colorLetra);
 }
 
 .collection .collection-item.active {

@@ -23,8 +23,7 @@ class categoria extends CI_Controller
 
         $data['titulo'] = $categoria;
         $data['categorias'] = $this->Mdl_Productos->get_Categorias();
-        $data['id_subcategoria'] = $this->uri->segment(4);
-
+        
         foreach ($data['categorias'] as $key => $value) {
             if (strcasecmp($value->CAT_Nombre, $categoria) == 0) {
                 $id_Categoria = $value->CAT_Categoria;
@@ -32,6 +31,8 @@ class categoria extends CI_Controller
             }
         }
 
+        $data['id_Categoria'] = $id_Categoria;
+        $data['id_subcategoria'] = $this->uri->segment(4);
         $data['subcategorias'] = $this->Mdl_Productos->get_Subcategorias($id_Categoria);
 
         if (strlen($data['id_subcategoria']) == 0 && count($data['subcategorias']) > 0) {
