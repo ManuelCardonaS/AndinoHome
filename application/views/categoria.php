@@ -13,6 +13,19 @@
     <?php $this->load->view('base/menu_Base', NULL, FALSE); ?>
 
     <main>
+
+        <div id="slider_Categoria" class="slider">
+            <ul class="slides">
+                <li>
+                    <img src="<?= base_url() ?>recursos/imagenes/categoria/<?= $imagen_Categoria ?>">
+                    <div class="caption left-align">
+                        <h3><?= $titulo ?></h3>
+                        <h5 class="light grey-text text-lighten-3"><?= $mensaje_Categoria ?></h5>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
         <div class="section">
             <div class="row">
                 <div id="div_Subcategorias" class="col s12 m4 l3">
@@ -26,7 +39,7 @@
                     </div>
                 </div>
                 <div id="div_Productos" class="col s12 m8 l9">
-                    <h4 class="center"><?= $titulo ?></h4>
+
                     <?php if (isset($productos) && count($productos) > 0) {
                         foreach ($productos as $key => $value) { ?>
                             <div class="col s12 m6 l3">

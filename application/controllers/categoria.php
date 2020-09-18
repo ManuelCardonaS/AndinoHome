@@ -27,6 +27,8 @@ class categoria extends CI_Controller
         foreach ($data['categorias'] as $key => $value) {
             if (strcasecmp($value->CAT_Nombre, $categoria) == 0) {
                 $id_Categoria = $value->CAT_Categoria;
+                $data['mensaje_Categoria'] = $value->CAT_Mensaje_Web;
+                $data['imagen_Categoria'] = $value->CAT_Ruta_Imagen;
                 break;
             }
         }

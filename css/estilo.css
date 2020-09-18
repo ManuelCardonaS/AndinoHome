@@ -92,6 +92,14 @@ main {
     background-color: var(--colorPrincipal);
 }
 
+#slider_Categoria img {
+    background-attachment: fixed;
+}
+
+#slider_Categoria .indicators {
+    display: none;
+}
+
 .btn,
 .btn-small,
 button {
