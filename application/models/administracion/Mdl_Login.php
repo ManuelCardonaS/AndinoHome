@@ -2,6 +2,12 @@
 
 class Mdl_Login extends CI_Model
 {
+    
+    public function __construct()
+    {
+        parent::__construct();
+    }
+    
 
     public function Login($Usuario, $Contrasena)
     {
@@ -33,7 +39,7 @@ class Mdl_Login extends CI_Model
                         'USU_ROL_Rolusuario' => $resultado_Usuario->USU_ROL_Rolusuario,
                         'USU_Nombre' => $resultado_Usuario->USU_Nombre,
                         'USU_Apellido' => $resultado_Usuario->USU_Apellido,
-                        'USU_Url_Img' => $resultado_Usuario->USU_Url_Img
+                        //'USU_Url_Img' => $resultado_Usuario->USU_Url_Img
                     );
                     $retorno['datos'] = $arraydata;
                 }

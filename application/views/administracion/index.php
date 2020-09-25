@@ -23,8 +23,9 @@
                 <div class="card-content">
                     <div class="row">
                         <form method="post" accept-charset="utf-8" action="">
-                            <div class="col input-field">
+                            <div class="col m3 s12 input-field">
                                 <select name="ckb_Categorias" id="ckb_Categorias">
+                                    <option selected value="-1">SELECCIONE:</option>
                                     <?php if (isset($categorias) && count($categorias) > 0) {
                                         foreach ($categorias as $key => $value) { ?>
                                             <option <?= $categoria_Seleccionada == $value->CAT_Categoria ? 'selected' : '' ?> value="<?= $value->CAT_Categoria ?>"><?= $value->CAT_Nombre ?></option>
@@ -36,7 +37,7 @@
                                 <label for="ckb_Categorias">Categorías</label>
                             </div>
 
-                            <div class="col input-field">
+                            <div class="col m3 s12 input-field">
                                 <select name="ckb_Subcategorias" id="ckb_Subcategorias">
                                     <option selected value="-1">SELECCIONE:</option>
                                     <?php if (isset($SubCategorias) && count($SubCategorias) > 0) {
@@ -50,7 +51,7 @@
                                 <label for="ckb_Subcategorias">Subcategorías</label>
                             </div>
 
-                            <div class="col input-field">
+                            <div class="col m3 s12 input-field">
                                 <select name="ckb_Estado">
                                     <?php foreach ($estados_Producto as $key => $value) { ?>
                                         <option value="<?= $value['valor'] ?>" <?= $value['valor'] == $estado ? "selected" : "" ?>><?= $value['estado'] ?></option>
@@ -59,17 +60,16 @@
                                 <label for="ckb_Estado">Estado del producto</label>
                             </div>
 
-                            <div class="col input-field">
+                            <div class="col m3 s12 input-field center">
                                 <button class="btn-small waves-effect waves-light" type="submit" name="action">Buscar
                                     <i class="material-icons right">send</i>
                                 </button>
                             </div>
                         </form>
-                    </div>
-
+                    </div>                        
+                        
                     <div class="row">
-
-                        <?php if ($subcategoria_Seleccionada != -1 && $estado) { ?>
+                        <?php if ($subcategoria_Seleccionada != -1 && $estado && count($categorias) > 0) { ?>
                             <div class="col input-field s12">
                                 <button class="btn-small waves-effect waves-light modal-trigger green" href="#modal_Crear_Producto" name="action">Añadir producto
                                     <i class="material-icons right">add</i>

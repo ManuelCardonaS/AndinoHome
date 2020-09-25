@@ -3,7 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Inicio extends CI_Controller
 {
-    
+
     public function __construct()
     {
         parent::__construct();
@@ -41,9 +41,13 @@ class Inicio extends CI_Controller
             $data['SubCategorias'] = $this->Mdl_Productos->get_Subcategorias($data['categoria_Seleccionada']);
             $data['estado'] = $this->input->post('ckb_Estado');
         } else {
-            $data['categoria_Seleccionada'] = $data['categorias'][0]->CAT_Categoria;
-            $data['SubCategorias'] = $this->Mdl_Productos->get_Subcategorias($data['categoria_Seleccionada']);
-            $data['subcategoria_Seleccionada'] = $data['SubCategorias'][0]->SUB_Subcategoria;
+
+            if (isset($data['categorias'][0]->CAT_Categoria)) {
+
+                $data['categoria_Seleccionada'] = $data['categorias'][0]->CAT_Categoria;
+                $data['SubCategorias'] = $this->Mdl_Productos->get_Subcategorias($data['categoria_Seleccionada']);
+                $data['subcategoria_Seleccionada'] = $data['SubCategorias'][0]->SUB_Subcategoria;
+            }
         }
 
         if ($data['subcategoria_Seleccionada'] != NULL && $data['subcategoria_Seleccionada'] != -1) {
@@ -113,5 +117,4 @@ class Inicio extends CI_Controller
 
         echo json_encode($this->Mdl_Productos->actualizar_Producto($arrayDatos));
     }
-
 }
