@@ -8,15 +8,13 @@ class index extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('web/Mdl_Productos');
-        
     }
     
-    public function index()
+    function index()
     {
         $data['categorias'] = $this->Mdl_Productos->get_Categorias();
 
         $this->load->view('index', $data, FALSE);
-        
     }
 
 }
