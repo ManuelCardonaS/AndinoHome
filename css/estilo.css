@@ -46,15 +46,25 @@ nav a {
 }
 
 nav ul a {
-    color: var(--colorLetra);
+    color: var(--colorLetra) !important;
 }
 
 nav ul a:hover {
     color: red;
 }
 
+.dropdown-content li.active,
+nav ul li.active {
+    background-color: var(--colorPrincipal);
+}
+
+.dropdown-content li.active a,
+nav ul li.active {
+    color: white !important;
+}
+
 nav ul a.active {
-    color: red;
+    color: red !important;
     font-size: 1.1rem;
 }
 
@@ -82,10 +92,6 @@ nav .nav-wrapper img.logo {
 
 nav .nav-content {
     padding-bottom: 10px;
-}
-
-main {
-    margin-top: 30px;
 }
 
 .slider .indicators .indicator-item.active {

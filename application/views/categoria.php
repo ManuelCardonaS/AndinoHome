@@ -42,7 +42,7 @@
 
                     <?php if (isset($productos) && count($productos) > 0) {
                         foreach ($productos as $key => $value) { ?>
-                            <div class="col s12 m6 l3">
+                            <div class="col s12 m6 l4">
                                 <a href="<?= base_url() . "index.php/producto/index/" . $value->PRO_Producto ?>">
                                     <div class="card pointer">
                                         <div class="card-image">

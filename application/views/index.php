@@ -46,7 +46,7 @@
                 </li>
             </ul>
         </div>
-        <div class="section">
+        <div class="section grey lighten-3">
             <div class="row card_Index">
                 <div class="col s12 m4">
                     <div class="card">

@@ -19,6 +19,7 @@ class producto extends CI_Controller
             header('Location: ' . base_url() . "index.php/index");
         }
 
+        $data['menu'] = "productos";
         $data['categorias'] = $this->Mdl_Productos->get_Categorias();
 
         $data['producto'] = $this->Mdl_Productos->get_Productos($id_Producto);

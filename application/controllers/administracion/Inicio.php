@@ -42,7 +42,7 @@ class Inicio extends CI_Controller
             $data['estado'] = $this->input->post('ckb_Estado');
         } else {
 
-            if (isset($data['categorias'][0]->CAT_Categoria)) {
+            if (isset($data['categorias'][0]->CAT_Categoria) && isset($data['SubCategorias'])) {
 
                 $data['categoria_Seleccionada'] = $data['categorias'][0]->CAT_Categoria;
                 $data['SubCategorias'] = $this->Mdl_Productos->get_Subcategorias($data['categoria_Seleccionada']);

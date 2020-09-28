@@ -12,6 +12,7 @@ class index extends CI_Controller {
     
     function index()
     {
+        $data['menu'] = "index";
         $data['categorias'] = $this->Mdl_Productos->get_Categorias();
 
         $this->load->view('index', $data, FALSE);

@@ -21,6 +21,7 @@ class categoria extends CI_Controller
 
         $id_Categoria = NULL;
 
+        $data['menu'] = "categoria";
         $data['titulo'] = $categoria;
         $data['categorias'] = $this->Mdl_Productos->get_Categorias();
         

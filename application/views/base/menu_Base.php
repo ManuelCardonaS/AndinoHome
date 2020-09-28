@@ -1,11 +1,13 @@
 <div class="navbar-fixed">
-    <nav class=" nav-extended">
+    <nav class="">
         <div class="nav-wrapper">
             <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 
             <ul class="left hide-on-med-and-down">
-                <li><a href="<?= base_url() ?>index.php/index">Inicio</a></li>
-                <li><a href="<?= base_url() ?>index.php/index">Sobre nosotros</a></li>
+                <li class="<?= $menu == "index" ? "active" : "" ?>"><a href="<?= base_url() ?>index.php/index">Inicio</a></li>
+                <li class="<?= $menu == "nosotros" ? "active" : "" ?>"><a href="<?= base_url() ?>index.php/index">Sobre nosotros</a></li>
+                <li><a class="dropdown-trigger" href="#!" data-target="drop_Categorias">Productos<i class="material-icons right">arrow_drop_down</i></a></li>
+
             </ul>
             <img height="100%" src="<?= base_url() ?>/recursos/imagenes/logo.jpg" class="logo hide-on-med-and-down center brand-logo">
             <ul class="right">
@@ -13,17 +15,16 @@
                 <li><a href="<?= base_url() ?>index.php/index"><img height="24px" src="<?= base_url() ?>recursos/imagenes/redes/instagram.png" alt=""></a></li>
             </ul>
         </div>
-        <div class="nav-content right hide-on-med-and-down">
-            <ul class="">
-                <?php if (count($categorias) > 0) {
-                    foreach ($categorias as $key => $value) { ?>
-                        <li><a href="<?= base_url() ?>index.php/categoria/index/<?= ucfirst(strtolower($value->CAT_Nombre)) ?>" class="<?= isset($id_Categoria) && $value->CAT_Categoria == $id_Categoria ? "active" : "" ?>"><?= ucfirst(strtolower($value->CAT_Nombre)) ?></a></li>
-                <?php }
-                } ?>
-            </ul>
-        </div>
     </nav>
 </div>
+
+<ul id="drop_Categorias" class="dropdown-content">
+    <?php if (count($categorias) > 0) {
+        foreach ($categorias as $key => $value) { ?>
+            <li class="<?= isset($id_Categoria) && $value->CAT_Categoria == $id_Categoria ? "active" : "" ?>"><a class="center" href="<?= base_url() ?>index.php/categoria/index/<?= ucfirst(strtolower($value->CAT_Nombre)) ?>"><?= ucfirst(strtolower($value->CAT_Nombre)) ?></a></li>
+    <?php }
+    } ?>
+</ul>
 
 <ul id="slide-out" class="sidenav">
     <li id="cabecera">
@@ -32,8 +33,8 @@
         </div>
     </li>
 
-    <li><a href="<?= base_url() ?>index.php/index"><i class="material-icons">home</i>Inicio</a></li>
-    <li><a href="<?= base_url() ?>index.php/index"><i class="material-icons">group</i>Sobre nosotros</a></li>
+    <li class="<?= $menu == "index" ? "active" : "" ?>"><a href="<?= base_url() ?>index.php/index"><i class="material-icons">home</i>Inicio</a></li>
+    <li class="<?= $menu == "nosotros" ? "active" : "" ?>"><a href="<?= base_url() ?>index.php/index"><i class="material-icons">group</i>Sobre nosotros</a></li>
     <li>
         <div class="divider"></div>
     </li>
