@@ -14,6 +14,7 @@
 
     <li><a class="waves-effect" target="blank" href="<?= base_url() ?>index.php"><i class="material-icons">arrow_forward</i>Página web</a></li>
     <li><a class="waves-effect" href="<?= base_url() ?>index.php/administracion/Inicio"><i class="material-icons">arrow_forward</i>Productos</a></li>
+    <li><a class="waves-effect" href="<?= base_url() ?>index.php/administracion/Categoria"><i class="material-icons">arrow_forward</i>Categorías</a></li>
 </ul>
 
 <nav>

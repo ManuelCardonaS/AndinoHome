@@ -5,7 +5,7 @@
 
             <ul class="left hide-on-med-and-down">
                 <li class="<?= $menu == "index" ? "active" : "" ?>"><a href="<?= base_url() ?>index.php/index">Inicio</a></li>
-                <li class="<?= $menu == "nosotros" ? "active" : "" ?>"><a href="<?= base_url() ?>index.php/index">Sobre nosotros</a></li>
+                <li class="<?= $menu == "nosotros" ? "active" : "" ?>"><a href="<?= base_url() ?>index.php/nosotros">Nosotros</a></li>
                 <li><a class="dropdown-trigger" href="#!" data-target="drop_Categorias">Productos<i class="material-icons right">arrow_drop_down</i></a></li>
 
             </ul>
@@ -34,7 +34,7 @@
     </li>
 
     <li class="<?= $menu == "index" ? "active" : "" ?>"><a href="<?= base_url() ?>index.php/index"><i class="material-icons">home</i>Inicio</a></li>
-    <li class="<?= $menu == "nosotros" ? "active" : "" ?>"><a href="<?= base_url() ?>index.php/index"><i class="material-icons">group</i>Sobre nosotros</a></li>
+    <li class="<?= $menu == "nosotros" ? "active" : "" ?>"><a href="<?= base_url() ?>index.php/nosotros"><i class="material-icons">group</i>Nosotros</a></li>
     <li>
         <div class="divider"></div>
     </li>

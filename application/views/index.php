@@ -19,28 +19,42 @@
                 <li>
                     <img src="<?= base_url() ?>recursos/imagenes/slideIndex/slide1.jpg">
                     <div class="caption left-align">
-                        <h3>TÍTULO!</h3>
+                        <h3>ELEGANCIA!</h3>
                         <h5 class="light grey-text text-lighten-3">Mensaje corto.</h5>
                     </div>
                 </li>
                 <li>
                     <img src="<?= base_url() ?>recursos/imagenes/slideIndex/slide2.jpg">
                     <div class="caption right-align">
-                        <h3>TÍTULO</h3>
+                        <h3>COLORES</h3>
                         <h5 class="light grey-text text-lighten-3">Mensaje corto.</h5>
                     </div>
                 </li>
                 <li>
                     <img src="<?= base_url() ?>recursos/imagenes/slideIndex/slide3.jpg">
                     <div class="caption center-align">
-                        <h3>TÍTULO</h3>
+                        <h3>TEXTURA</h3>
                         <h5 class="light grey-text text-lighten-3">Mensaje corto.</h5>
                     </div>
                 </li>
                 <li>
                     <img src="<?= base_url() ?>recursos/imagenes/slideIndex/slide4.jpg">
                     <div class="caption center-align">
-                        <h3>TÍTULO!</h3>
+                        <h3>DISEÑO!</h3>
+                        <h5 class="light grey-text text-lighten-3">Mensaje corto.</h5>
+                    </div>
+                </li>
+                <li>
+                    <img src="<?= base_url() ?>recursos/imagenes/slideIndex/slide1.jpg">
+                    <div class="caption left-align">
+                        <h3>ATENCIÓN!</h3>
+                        <h5 class="light grey-text text-lighten-3">Mensaje corto.</h5>
+                    </div>
+                </li>
+                <li>
+                    <img src="<?= base_url() ?>recursos/imagenes/slideIndex/slide2.jpg">
+                    <div class="caption center-align">
+                        <h3>VISÍTANOS!</h3>
                         <h5 class="light grey-text text-lighten-3">Mensaje corto.</h5>
                     </div>
                 </li>

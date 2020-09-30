@@ -22,8 +22,8 @@ class Inicio extends CI_Controller
 
         $data['categorias'] = $this->Mdl_Productos->get_Categorias();
         $data['caracteristicas'] = $this->Mdl_Productos->get_Caracteristicas();
-        $data['categoria_Seleccionada'] = NULL;
-        $data['subcategoria_Seleccionada'] = NULL;
+        $data['categoria_Seleccionada'] = -1;
+        $data['subcategoria_Seleccionada'] = -1;
         $data['productos'] = NULL;
         $data['estado'] = 1;
         $data['estados_Producto'][0] = array(

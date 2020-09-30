@@ -70,20 +70,20 @@
 
                     <div class="row">
                         <?php if ($subcategoria_Seleccionada != null && $subcategoria_Seleccionada != -1 && $estado && count($categorias) > 0) { ?>
-                            <div class="col input-field s12">
+                            <div class="col input-field s12 center">
                                 <button class="btn-small waves-effect waves-light modal-trigger green" href="#modal_Crear_Producto" name="action">Añadir producto
                                     <i class="material-icons right">add</i>
                                 </button>
                             </div>
                         <?php } ?>
 
-                        <div class="col m12">
+                        <div class="row">
                             <?php if (isset($productos) && count($productos) > 0) {
                                 foreach ($productos as $key => $value) {
                                     $foto = $value->FOT_Ruta == NULL ? base_url() . "recursos/imagenes/nofoto.png" : base_url() . "recursos/imagenes/productos/" . $value->FOT_Ruta ?>
-                                    <div id="<?= $value->PRO_Producto ?>" class="col s12 m4 l3">
+                                    <div id="<?= $value->PRO_Producto ?>" class="col s12 m4">
                                         <div class="card">
-                                            <div class="card-image responsive-img">
+                                            <div class="card-image">
                                                 <img src="<?= $foto ?> ">
                                                 <a class="btn-floating halfway-fab waves-effect waves-light abrir_Producto blue"><i class="material-icons">add</i></a>
                                             </div>

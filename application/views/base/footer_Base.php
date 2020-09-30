@@ -4,7 +4,8 @@
 
     <div class="footer-copyright">
         <div class="container">
-            © 2020 Desarrollado por Manuel Cardona <br>
+            <span>Tienda de decortación de interiores y asesorías.</span> <br>
+            <span>Envíos a todo el país</span> <br>
             Íconos tomados de <a href="https://www.flaticon.com/" title="Flaticon" class="black-text"> www.flaticon.com</a>
         </div>
     </div>

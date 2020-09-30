@@ -152,6 +152,16 @@ main {
     display: none;
 }
 
+.collection .collection-item.active {
+    background-color: var(--colorBoton);
+    color: #eafaf9;
+}
+
+.secondary-content {
+    float: right;
+    color: var(--colorBoton);
+}
+
 @media only screen and (max-width: 992px) {
     header,
     main,
@@ -162,5 +172,8 @@ main {
     .modal {
         max-width: 100%;
         width: 100% !important;
+    }
+    .card .card-image img {
+        height: auto !important;
     }
 }

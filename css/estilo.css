@@ -36,7 +36,7 @@ body {
     padding: 20px;
 }
 
-nav {
+nav:not(.pushpin-demo-nav) {
     background-color: #ffffff;
     border-bottom: var(--colorPrincipal) solid 3px;
 }
@@ -50,7 +50,7 @@ nav ul a {
 }
 
 nav ul a:hover {
-    color: red;
+    color: var(--colorPrincipal);
 }
 
 .dropdown-content li.active,
@@ -63,9 +63,11 @@ nav ul li.active {
     color: white !important;
 }
 
+.nav-wrapper ul li.active a,
 nav ul a.active {
-    color: red !important;
+    color: var(--colorPrincipal) !important;
     font-size: 1.1rem;
+    color: white !important;
 }
 
 nav ul a:hover {
