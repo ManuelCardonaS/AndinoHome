@@ -21,7 +21,7 @@
 <ul id="drop_Categorias" class="dropdown-content">
     <?php if (count($categorias) > 0) {
         foreach ($categorias as $key => $value) { ?>
-            <li class="<?= isset($id_Categoria) && $value->CAT_Categoria == $id_Categoria ? "active" : "" ?>"><a class="center" href="<?= base_url() ?>index.php/categoria/index/<?= ucfirst(strtolower($value->CAT_Nombre)) ?>"><?= ucfirst(strtolower($value->CAT_Nombre)) ?></a></li>
+            <li class="<?= isset($id_Categoria) && $value->CAT_Categoria == $id_Categoria ? "active" : "" ?>"><a class="center" href="<?= base_url() ?>index.php/categoria/index/<?= ucfirst(strtolower($value->CAT_Categoria)) ?>"><?= ucfirst(strtolower($value->CAT_Nombre)) ?></a></li>
     <?php }
     } ?>
 </ul>

@@ -19,15 +19,15 @@ class categoria extends CI_Controller
             header('Location: ' . base_url() . "index.php/index");
         }
 
-        $id_Categoria = NULL;
-
-        $data['menu'] = "categoria";
-        $data['titulo'] = $categoria;
+        $id_Categoria = null;
         $data['categorias'] = $this->Mdl_Productos->get_Categorias();
+        $data['categorias'] = $this->Mdl_Productos->get_Categorias();
+        $data['menu'] = "categoria";
         
         foreach ($data['categorias'] as $key => $value) {
-            if (strcasecmp($value->CAT_Nombre, $categoria) == 0) {
+            if ($value->CAT_Categoria == $categoria) {
                 $id_Categoria = $value->CAT_Categoria;
+                $data['titulo'] = $value->CAT_Nombre;
                 $data['mensaje_Categoria'] = $value->CAT_Mensaje_Web;
                 $data['imagen_Categoria'] = $value->CAT_Ruta_Imagen;
                 break;

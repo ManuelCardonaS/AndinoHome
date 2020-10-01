@@ -6,15 +6,14 @@
     <meta charset="utf-8">
     <title>Categorías</title>
     <?php $this->load->view('base/head_Base_Admin', NULL, FALSE); ?>
-    <script src="<?= base_url(); ?>js/gestion_Productos.js" type="application/javascript"></script>
+    <script src="<?= base_url(); ?>js/gestion_Categorias.js" type="application/javascript"></script>
 </head>
 
 <body>
 
     <?php
     $this->load->view('base/menu_Base_Admin', NULL, FALSE);
-    $this->load->view('modal/modal_Crear_Producto', NULL, FALSE);
-    $this->load->view('modal/modal_Detalle_Producto', NULL, FALSE);
+    $this->load->view('modal/modal_Categoria', NULL, FALSE);
     ?>
 
     <main>
@@ -26,7 +25,8 @@
                             <ul class="collection with-header">
                                 <li class="collection-header center">
                                     <h4>Categorías</h4>
-                                    <a href="#" class="waves-effect waves-light btn-small">Añadir categoría</a>
+                                    <a class="waves-effect waves-light btn-small modal-trigger" href="#modal_Categoria">Añadir categoría</a>
+
                                 </li>
                                 <?php if (count($categorias) > 0) {
                                     foreach ($categorias as $key => $value) { ?>
@@ -57,19 +57,20 @@
 
                             </ul>
                         </div>
-                        <div class="col s12 m12 l6">
-                            <div class="col s12 m12 l12">
-                                <div class="card">
-                                    <div class="card-image">
-                                        <img src="<?= base_url() ?>recursos/imagenes/categoria/<?= $ruta_Imagen_Categoria ?>">
-
-                                    </div>
-                                    <div class="card-content">
-                                        <p><?= $mensaje_Categoria ?></p>
+                        <?php if (isset($ruta_Imagen_Categoria) && isset($mensaje_Categoria)) { ?>
+                            <div class="col s12 m12 l6">
+                                <div class="col s12 m12 l12">
+                                    <div class="card">
+                                        <div class="card-image">
+                                            <img src="<?= base_url() ?>recursos/imagenes/categoria/<?= $ruta_Imagen_Categoria ?>">
+                                        </div>
+                                        <div class="card-content">
+                                            <p><?= $mensaje_Categoria ?></p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        <?php } ?>
                     </div>
                 </div>
             </div>
@@ -84,6 +85,5 @@
 
 <script type="application/javascript">
     var base_url = "<?= base_url(); ?>";
-    var categoria_Seleccionada = <?= $categoria_Seleccionada ?>;
-    var subcategoria_Seleccionada = <?= $subcategoria_Seleccionada ?>
+    var id_Categoria_Seleccionada = <?= $id_Categoria_Seleccionada ?>;
 </script>
