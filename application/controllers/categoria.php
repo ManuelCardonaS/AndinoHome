@@ -14,6 +14,7 @@ class categoria extends CI_Controller
     public function index()
     {
         $categoria = $this->uri->segment(3);
+        $subcategoria = $this->uri->segment(4);
 
         if (strlen($categoria) == 0) {
             header('Location: ' . base_url() . "index.php/index");

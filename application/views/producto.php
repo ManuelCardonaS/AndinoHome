@@ -15,6 +15,13 @@
     <main>
         <div class="section white">
             <div class="row">
+
+            <div class="col s12 m12 l5" data-aos="fade-right">
+
+                    <h4 class="center"><?= $producto[0]->PRO_Nombre ?></h4>
+
+                    <p id="descripción_Producto" class="flow-text"><?= $producto[0]->PRO_Descripcion ?></p>
+                </div>
                 <div class="col s12 m12 l7">
                     <div class="carousel carousel-slider">
                         <?php if (isset($imagenes) && count($imagenes) > 0) {
@@ -27,12 +34,7 @@
                     </div>
                 </div>
 
-                <div class="col s12 m12 l5">
-
-                    <h4 class="center"><?= $producto[0]->PRO_Nombre ?></h4>
-
-                    <p id="descripción_Producto" class="flow-text"><?= $producto[0]->PRO_Descripcion ?></p>
-                </div>
+                
             </div>
 
             <div class="container">

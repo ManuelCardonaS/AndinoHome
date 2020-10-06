@@ -1,4 +1,7 @@
-$(document).ready(function() {
+$(document).ready(function () {
+
+    //Plugin AOS
+    AOS.init();
 
     $('.sidenav').sidenav();
     $('.collapsible').collapsible();
@@ -63,14 +66,7 @@ $(document).ready(function() {
         }
     });
 
-    $(".table").tablesorter({
-        widgets: [],
-        usNumberFormat: false,
-        sortReset: true,
-        sortRestart: true,
-    });
-
-    $('.pushpin-demo-nav').each(function() {
+    $('.pushpin-demo-nav').each(function () {
         var $this = $(this);
         var $target = $('#' + $(this).attr('data-target'));
         $this.pushpin({

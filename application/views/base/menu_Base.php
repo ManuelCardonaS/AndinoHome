@@ -41,7 +41,7 @@
     <li><a class="subheader">Categorías</a></li>
     <?php if (count($categorias) > 0) {
         foreach ($categorias as $key => $value) { ?>
-            <li><a href="<?= base_url() ?>index.php/categoria/index/<?= ucfirst(strtolower($value->CAT_Nombre)) ?>" class="grey-text text-darken-3 lighten-3"><i class="material-icons">arrow_forward</i><?= ucfirst(strtolower($value->CAT_Nombre)) ?></a></li>
+            <li><a href="<?= base_url() ?>index.php/categoria/index/<?= $value->CAT_Categoria ?>" class="grey-text text-darken-3 lighten-3"><i class="material-icons">arrow_forward</i><?= ucfirst(strtolower($value->CAT_Nombre)) ?></a></li>
     <?php }
     } ?>
 </ul>

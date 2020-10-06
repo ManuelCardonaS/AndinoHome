@@ -11,7 +11,7 @@
 <body>
 
     <?php $this->load->view('base/menu_Base', NULL, FALSE); ?>
-    
+
     <main>
 
         <div id="slider-index" class="slider">
@@ -62,7 +62,7 @@
         </div>
         <div class="section grey lighten-3">
             <div class="row card_Index">
-                <div class="col s12 m4">
+                <div class="col s12 m4" data-aos="zoom-in-right">
                     <div class="card">
                         <div class="card-image">
                             <img src="<?= base_url() ?>recursos/imagenes/index/sala.jpg">
@@ -76,7 +76,7 @@
                     </div>
                 </div>
 
-                <div class="col s12 m4">
+                <div class="col s12 m4" data-aos="zoom-out">
                     <div class="card">
                         <div class="card-image">
                             <img src="<?= base_url() ?>recursos/imagenes/index/comedor.jpg">
@@ -89,7 +89,7 @@
                     </div>
                 </div>
 
-                <div class="col s12 m4">
+                <div class="col s12 m4" data-aos="zoom-in-left">
                     <div class="card">
                         <div class="card-image">
                             <img src="<?= base_url() ?>recursos/imagenes/index/cama.jpg">
@@ -104,13 +104,38 @@
 
             </div>
         </div>
-        <div class="parallax-container">
+
+        <div class="parallax-container center valign-wrapper">
+            <div class="container" data-aos="zoom-in-down">
+                <div class="row">
+                    <div class="col s12 white-text">
+                        <h2 class="white-text lighten-2">ELEGANCIA</h2>
+                        <h3>Mensaje en el efecto parallax para llamar la atención</h3>
+                    </div>
+                </div>
+            </div>
+
             <div class="parallax"><img src="<?= base_url() ?>recursos/imagenes/index/parallax1.jpg"></div>
         </div>
+
         <div class="section white">
-            <div class="row container">
-                <h2 class="header">Otra sección</h2>
-                <p class="grey-text text-darken-3 lighten-3">Un texto después de un efecto parallax.</p>
+            <div class="container">
+                <div class="col s12 m12" data-aos="zoom-in-down">
+                    <h2 class="header">Horizontal Card</h2>
+                    <div class="card horizontal">
+                        <div class="card-image">
+                            <img src="https://lorempixel.com/100/190/nature/6">
+                        </div>
+                        <div class="card-stacked">
+                            <div class="card-content">
+                                <p>I am a very simple card. I am good at containing small bits of information.</p>
+                            </div>
+                            <div class="card-action">
+                                <a href="#">This is a link</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </main>

@@ -33,7 +33,7 @@
                     <div class="collection">
                         <?php if (isset($subcategorias)) {
                             foreach ($subcategorias as $key => $value) { ?>
-                                <a href="<?= base_url() . "index.php/categoria/index/" . $titulo . "/" . $value->SUB_Subcategoria ?>" class="collection-item center <?= $value->SUB_Subcategoria == $id_subcategoria ? "active" : "" ?>"><?= $value->SUB_Nombre ?></a>
+                                <a href="<?= base_url() . "index.php/categoria/index/" . $id_Categoria . "/" . $value->SUB_Subcategoria ?>" class="collection-item center <?= $value->SUB_Subcategoria == $id_subcategoria ? "active" : "" ?>"><?= $value->SUB_Nombre ?></a>
                         <?php }
                         } ?>
                     </div>
@@ -42,7 +42,7 @@
 
                     <?php if (isset($productos) && count($productos) > 0) {
                         foreach ($productos as $key => $value) { ?>
-                            <div class="col s12 m6 l4">
+                            <div class="col s12 m6 l4" data-aos="fade-up">
                                 <a href="<?= base_url() . "index.php/producto/index/" . $value->PRO_Producto ?>">
                                     <div class="card pointer">
                                         <div class="card-image">

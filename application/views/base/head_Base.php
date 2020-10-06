@@ -11,6 +11,6 @@
 <link href="<?= base_url() ?>css/estilo.css" rel="stylesheet">
 
 <script src="<?= base_url(); ?>js/script_Base.js" type="application/javascript"></script>
-<link href="<?= base_url() ?>tablesorter/css/theme.dark.css" rel="stylesheet">
-<script src="<?= base_url() ?>tablesorter/js/jquery.tablesorter.min.js"></script>
-<script src="<?= base_url() ?>tablesorter/js/jquery.tablesorter.widgets.min.js"></script>
+
+<link href="<?= base_url() ?>recursos/plugins/aos/aos.css" rel="stylesheet">
+<script src="<?= base_url(); ?>recursos/plugins/aos/aos.js" type="application/javascript"></script>
