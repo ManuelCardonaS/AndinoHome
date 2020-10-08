@@ -12,7 +12,7 @@
 }
 
 .color-Principal {
-    background-color: var(--colorPrincipal);
+    background-color: var(--colorPrincipal) !important;
 }
 
 body {
@@ -53,18 +53,15 @@ nav ul a:hover {
     color: var(--colorPrincipal);
 }
 
-.dropdown-content li.active,
-nav ul li.active {
+.dropdown-content li.active, nav ul li.active {
     background-color: var(--colorPrincipal);
 }
 
-.dropdown-content li.active a,
-nav ul li.active {
+.dropdown-content li.active a, nav ul li.active {
     color: white !important;
 }
 
-.nav-wrapper ul li.active a,
-nav ul a.active {
+.nav-wrapper ul li.active a, nav ul a.active {
     color: var(--colorPrincipal) !important;
     font-size: 1.1rem;
     color: white !important;
@@ -108,15 +105,11 @@ nav .nav-content {
     display: none;
 }
 
-.btn,
-.btn-small,
-button {
+.btn, .btn-small, button {
     background-color: var(--colorBoton);
 }
 
-.btn:hover,
-.btn-small:hover,
-button:hover {
+.btn:hover, .btn-small:hover, button:hover {
     background-color: var(--colorBotonHover);
 }
 
@@ -138,7 +131,7 @@ main {
 }
 
 #div_Productos .card .card-image img {
-    height: 200px;
+    height: 230px;
 }
 
 .card .card-image img {
@@ -174,6 +167,11 @@ main {
     background-color: #000000;
 }
 
+.section>.card>.col>img {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+}
+
 @media only screen and (max-width: 992px) {
     main {
         margin-top: 0px;
@@ -183,5 +181,8 @@ main {
     }
     .container {
         width: 99%;
+    }
+    .section>.row>.col>img {
+        width: auto;
     }
 }

@@ -45,3 +45,9 @@
     <?php }
     } ?>
 </ul>
+
+<div class="fixed-action-btn direction-top active">
+    <a id="volver_Arriba" class="btn btn-floating btn-medium color-Principal ">
+        <i class="material-icons">arrow_upward</i>
+    </a>
+</div>

@@ -19,6 +19,7 @@ $(document).ready(function () {
         indicators: true
     });
     $('.materialboxed').materialbox();
+    $('.tap-target').tapTarget();
 
     $('.datepicker').datepicker({
         container: 'body',
@@ -73,6 +74,20 @@ $(document).ready(function () {
             top: $target.offset().top,
             bottom: $target.offset().top + $target.outerHeight() - $this.height()
         });
+    });
+
+    $('#volver_Arriba').fadeOut('fast');
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 300) {
+            $('#volver_Arriba').fadeIn('slow');
+        } else {
+            $('#volver_Arriba').fadeOut('slow');
+        }
+    });
+
+    $('#volver_Arriba').click(function (event) {
+        event.preventDefault();
+        $('html, body').animate({ scrollTop: 0 }, 600);
     });
 
 });

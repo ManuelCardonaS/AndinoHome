@@ -118,25 +118,20 @@
             <div class="parallax"><img src="<?= base_url() ?>recursos/imagenes/index/parallax1.jpg"></div>
         </div>
 
-        <div class="section white">
-            <div class="container">
-                <div class="col s12 m12" data-aos="zoom-in-down">
-                    <h2 class="header">Horizontal Card</h2>
-                    <div class="card horizontal">
-                        <div class="card-image">
-                            <img src="https://lorempixel.com/100/190/nature/6">
-                        </div>
-                        <div class="card-stacked">
-                            <div class="card-content">
-                                <p>I am a very simple card. I am good at containing small bits of information.</p>
-                            </div>
-                            <div class="card-action">
-                                <a href="#">This is a link</a>
-                            </div>
-                        </div>
+        <div class="section">
+
+            <div class=" row center valign-wrapper">
+                <div class="col s12 m7">
+                    <div class="card-panel color-Principal">
+                        <span class="flow-text white-text">Decorar rima con soñar, con inspirar, ¡con imaginar!
+                            Estas son nuestras razones para la felicidad, ¿y las tuyas?</span>
                     </div>
                 </div>
+                <div class="col s12 m5">
+                    <img src="<?= base_url() ?>recursos/imagenes/index/decoracion.jpg" class="responsive-img right">
+                </div>
             </div>
+
         </div>
     </main>
 
